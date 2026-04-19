@@ -31,15 +31,6 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-
-    // 🔧 빠른 수정: 실제 소스 코드 경로를 루트의 src/main으로 지정
-    sourceSets {
-        getByName("main") {
-            java.srcDirs("src/main/kotlin")
-            res.srcDirs("src/main/res")
-            manifest.srcFile("src/main/AndroidManifest.xml")
-        }
-    }
 }
 
 dependencies {
@@ -49,7 +40,7 @@ dependencies {
     // Supabase v2.5.0 (gotrue-kt 사용)
     implementation("io.github.jan-tennert.supabase:realtime-kt:2.5.0")
     implementation("io.github.jan-tennert.supabase:postgrest-kt:2.5.0")
-    implementation("io.github.jan-tennert.supabase:gotrue-kt:2.5.0")   // auth-kt 대신
+    implementation("io.github.jan-tennert.supabase:gotrue-kt:2.5.0")
 
     // Kotlin Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
