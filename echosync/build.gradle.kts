@@ -36,15 +36,10 @@ android {
 }
 
 dependencies {
-    // Echo Nightly v725 API (가정: JitPack 또는 로컬 aar)
-    // 실제 Echo nightly 의존선은 추후 추가 필요
-    compileOnly("com.github.innoxstries:echo-nightly:v725") // 또는 provided
-
-    // Supabase Kotlin SDK (v2.5.0 기준)
+    // v2.5.0 호환 (gotrue-kt 사용)
     implementation("io.github.jan-tennert.supabase:realtime-kt:2.5.0")
     implementation("io.github.jan-tennert.supabase:postgrest-kt:2.5.0")
-    implementation("io.github.jan-tennert.supabase:auth-kt:2.5.0")
-    
+    implementation("io.github.jan-tennert.supabase:gotrue-kt:2.5.0")  // ← auth-kt 대신    
     // Kotlin Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1")
