@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.echosync">
+
+    <!-- 인터넷 권한 (Supabase Realtime 통신) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <!-- 네트워크 상태 확인 (선택) -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application>
+        <!-- Echo Nightly 익스텐션 선언 -->
+        <meta-data
+            android:name="echo_extension_type"
+            android:value="tracker" />
+        
+        <meta-data
+            android:name="echo_extension_name"
+            android:value="실시간 음악 동기화" />
+        
+        <meta-data
+            android:name="echo_extension_description"
+            android:value="방장과 참가자의 음악 재생 상태를 실시간으로 동기화합니다." />
+        
+        <meta-data
+            android:name="echo_extension_version"
+            android:value="1" />
+
+        <!-- Settings Activity: Echo Nightly의 Extension Settings UI에서 호출됨 -->
+        <activity
+            android:name=".SyncSettingsActivity"
+            android:exported="true"
+            android:label="Sync Settings"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" />
+        
+        <!-- TrackerExtension 서비스 (Echo Nightly가 바인딩) -->
+        <service
+            android:name=".EchoSyncExtension"
+            android:exported="true"
+            android:permission="com.innoxstries.echo.PERMISSION_EXTENSION">
+            <intent-filter>
+                <action android:name="com.innoxstries.echo.TRACKER_EXTENSION" />
+            </intent-filter>
+        </service>
+    </application>
+</manifest>
